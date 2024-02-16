@@ -104,16 +104,20 @@ public class Tester {
 			if(option == 1) {
 				optionOne(makes);
 			}else if(option == 2){
-				if(!args[2].equals("makeName") && !args[2].equals("model")){
+				if(!args[2].equals("make") && !args[2].equals("model") && !args[2].equals("transmission")
+				   && !args[2].equals("vClass")  && !args[2].equals("engineDispl") && !args[2].equals("cylinders")
+				  	&& !args[2].equals("year") && !args[2].equals("fuelType")){
 					System.err.println("USAGE: java tester 2 <filename> <columnName> <value>");
-					System.err.println("<columnName> only considers \"makeName\" or \"model\" ");
+					System.err.println("<columnName> should be one of the following options: 
+							make, model, transmission, vClass, engineDispl, cylinders,
+							year, fuelType");
 					System.exit(1);
 				}
-				optionTwo(makes);
+				optionTwo(makes, args[2], args[3]);
 			}else if(option == 3){
-				
+				optionThree(makes);
 			}else if(option == 4){
-				
+				optionFour(makes);
 			}else{
 				System.err.println("USAGE: java tester <1...4> <filename>");
 				System.exit(1);
@@ -145,8 +149,34 @@ public class Tester {
 		
 	}
 
-	public static void optionTwo(Set<Makes> makes){
-		
+	public static void optionTwo(Set<Makes> makes, String column, String value){
+		Set<ModelSettings> set = null;
+		if(column.equals("make")){
+			set = filterByMake(makes, value);
+		}
+		else if(column.equals("model")){
+			set = filterByModel(makes, value);
+		}
+		else if(column.equals("cylinders")){
+			set = filterByCylinders(makes, value);
+		}
+		else if(column.equals("engineDispl")){
+			set = filterByEngineDispl(makes, value);
+		}
+		else if(column.equals("transmission")){
+			set = filterByTransmission(makes, value);
+		}
+		else if(column.equals("vClass")){
+			set = filterByVClass(makes, value);
+		}
+		else if(column.equals("fuelType")){
+			set = filterByFuelType(makes, value);
+		}
+		else if(column.equals("year")){
+			set = filterByYear(makes, value);
+		}
+
+		//TODO: Print Filtered Set
 	}
 
 	public static void optionThree(Set<Makes> makes){
@@ -207,4 +237,6 @@ public class Tester {
 			}
 		}
 	}
+
+
 }
