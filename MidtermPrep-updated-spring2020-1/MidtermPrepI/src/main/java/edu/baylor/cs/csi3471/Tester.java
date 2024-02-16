@@ -190,40 +190,88 @@ public class Tester {
 	private static void filterByMake(Set<Makes> makes, String value){
 		Set<ModelSettings> set = setToFilter(makes);
 		set = set.stream().filter(m -> m.getMake().contains(value)).collect(Collectors.toCollection(LinkedHashSet::new));
+
+		System.out.println("Results");
+		System.out.println("================");
+		for(ModelSettings ms : set){
+			System.out.println(ms.getMake() +  ", " + ms.getModelName() + ", " );
+		}
 	}
 
 	
 	private static void filterByModel(Set<Makes> makes, String value){
 		Set<ModelSettings> set = setToFilter(makes);
 		set = set.stream().filter(m -> m.getModelName().contains(value)).collect(Collectors.toCollection(LinkedHashSet::new));
+
+		System.out.println("Results");
+		System.out.println("================");
+		for(ModelSettings ms : set){
+			System.out.println(ms.getMake() +  ", " + ms.getModelName());
+		}
 	}
 
 	
 	private static void filterByCylinders(Set<Makes> makes, String value){
 		Set<ModelSettings> set = setToFilter(makes);
 		set = set.stream().filter(m -> m.getCylinders() == Integer.parseInt(value)).collect(Collectors.toCollection(LinkedHashSet::new));
+
+		System.out.println("Results");
+		System.out.println("================");
+		for(ModelSettings ms : set){
+			System.out.println(ms.getMake() +  ", " + ms.getModelName() + ", cylinders: "  + ms.getCylinders());
+		}
 	}
 
 	
 	private static void filterByEngineDispl(Set<Makes> makes, String value){
 		Set<ModelSettings> set = setToFilter(makes);
 		set = set.stream().filter(m -> Math.abs(m.getDsiplacement() - Double.parseDouble(value)) < 0.00001).collect(Collectors.toCollection(LinkedHashSet::new));
+
+		System.out.println("Results");
+		System.out.println("================");
+		for(ModelSettings ms : set){
+			System.out.println(ms.getMake() +  ", " + ms.getModelName() + ", displacement: " + ms.getDisplacement());
+		}
 	}
 	private static void filterByTransmission(Set<Makes> makes, String value){
 		Set<ModelSettings> set = setToFilter(makes);
 		set = set.stream().filter(m -> m.getTransmission().contains(value)).collect(Collectors.toCollection(LinkedHashSet::new));
+
+		System.out.println("Results");
+		System.out.println("================");
+		for(ModelSettings ms : set){
+			System.out.println(ms.getMake() +  ", " + ms.getModelName() + ", transmission: " + ms.getTransmission());
+		}
 	}
 	private static void filterByVClass(Set<Makes> makes, String value){
 		Set<ModelSettings> set = setToFilter(makes);
 		set = set.stream().filter(m -> m.getVClass().contains(value)).collect(Collectors.toCollection(LinkedHashSet::new));
+
+		System.out.println("Results");
+		System.out.println("================");
+		for(ModelSettings ms : set){
+			System.out.println(ms.getMake() +  ", " + ms.getModelName() + ", VClass: " + ms.getVClass());
+		}
 	}
 	private static void filterByFuelType(Set<Makes> makes, String value){
 		Set<ModelSettings> set = setToFilter(makes);
 		set = set.stream().filter(m -> m.getFuelType().contains(value)).collect(Collectors.toCollection(LinkedHashSet::new));
+
+		System.out.println("Results");
+		System.out.println("================");
+		for(ModelSettings ms : set){
+			System.out.println(ms.getMake() +  ", " + ms.getModelName() + ", Fuel Type: " + ms.getFuelType());
+		}
 	}
 	private static void filterByYear(Set<Makes> makes, String value){
 		Set<ModelSettings> set = setToFilter(makes);
 		set = set.stream().filter(m -> m.getYear() == Integer.parseInt(value)).collect(Collectors.toCollection(LinkedHashSet::new));
+
+		System.out.println("Results");
+		System.out.println("================");
+		for(ModelSettings ms : set){
+			System.out.println(ms.getMake() +  ", " + ms.getModelName() + ", year: " + ms.getYear() );
+		}
 	}
 
 	public static void optionThree(Set<Makes> makes){
