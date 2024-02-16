@@ -11,6 +11,8 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Tester {
 
@@ -148,7 +150,29 @@ public class Tester {
 	}
 
 	public static void optionThree(Set<Makes> makes){
+		Set<String> vClasses = new TreeSet<>((m1, m2)-> m1.compareToIgnoreCase(m2));
+		Map<String, Integer> vClassMPG = new HashMap<>();
+		for(Make m : makes){
+			Set<ModelSettings> fit = m.getModelSettingSet();
+			for(ModelSettings ms : fit){
+				MPG mpg = ms.getMpg();
+				String vClass = ms.getVClass();
+				if(vClassMPG.containsKey(ms.getVClass())){
+					int comb = vClassMPG.get(vClass + mpg.getComb();
+					vClassMPG.put(vClass, comb);
+				}else{
+					vClassMPG.put(vClass, mpg.getComb());
+				}
+				vClasses.add(vClass);
+			}
+		}
+
+		System.out.println("EPA Vehicle Size Classes: ");
+		System.out.println("==========================");
 		
+		for(String vClass : vClasses){
+			System.out.println(vClass + ", Total Combined MPG: " + vClassMPG.get(vClass));
+		}
 	}
 
 	public static void optionFour(Set<Makes> makes){
