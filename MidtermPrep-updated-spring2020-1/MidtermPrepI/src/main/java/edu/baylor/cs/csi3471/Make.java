@@ -30,6 +30,7 @@ public class Make {
 	}
 
 	@Override
+	//TODO: Change toString() method to autogenerate in Eclipse for shorter output
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Make: ").append(makeName).append("\n");
