@@ -19,6 +19,30 @@ public class ModelSettings {
 		public String toString() {
 			return "city: " + city + "/ combined: " + comb + "/ highway: " + highway;
 		}
+
+		public void setComb(int comb){
+			this.comb = comb;
+		}
+
+		public void setCity(int city){
+			this.city = city;
+		}
+
+		public void setHighway(int highway){
+			this.highway = highway;
+		}
+
+		public int getCity(){
+			return city;
+		}
+
+		public int getComb(){
+			return comb;
+		}
+
+		public int getHighway(){
+			return highway;
+		}
 	}
 
 	private MPG mpg;
