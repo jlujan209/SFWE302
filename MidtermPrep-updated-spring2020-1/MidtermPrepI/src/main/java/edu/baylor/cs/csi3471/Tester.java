@@ -19,7 +19,8 @@ public class Tester {
 
 	private static int readOption(String[] args) {
 		Integer option = null;
-		if (args.length != 2) {
+		//2 for options 1,3,4 and 4 for option 2 which has extra arguments
+		if (args.length != 2 && args.length != 4) {
 			System.err.println("USAGE: java Tester <1...4> <filename>");
 			System.exit(1);
 		} else {
@@ -100,6 +101,20 @@ public class Tester {
 			
 			if(option == 1) {
 				optionOne(makes);
+			}else if(option == 2){
+				if(!args[2].equals("makeName") && !args[2].equals("model")){
+					System.err.println("USAGE: java tester 2 <filename> <columnName> <value>");
+					System.err.println("<columnName> only considers \"makeName\" or \"model\" ");
+					System.exit(1);
+				}
+				optionTwo(makes);
+			}else if(option == 3){
+				
+			}else if(option == 4){
+				
+			}else{
+				System.err.println("USAGE: java tester <1...4> <filename>");
+				System.exit(1);
 			}
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getLocalizedMessage());
@@ -125,6 +140,18 @@ public class Tester {
 			System.out.println(m.toString());
 			System.out.println("    -  -  -  -  -  -  -  -  -  -  -   ");
 		}
+		
+	}
+
+	public static void optionTwo(Set<Makes> makes){
+		
+	}
+
+	public static void optionThree(Set<Makes> makes){
+		
+	}
+
+	public static void optionFour(Set<Makes> makes){
 		
 	}
 }
