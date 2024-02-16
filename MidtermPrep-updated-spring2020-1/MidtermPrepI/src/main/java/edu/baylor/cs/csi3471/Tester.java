@@ -149,12 +149,12 @@ public class Tester {
 		
 	}
 
-	public static void optionTwo(Set<Makes> makes, String column, String value){
+	public static void optionTwo(Set<Make> makes, String column, String value){
 		if(column.equals("make")){
-			sfilterByMake(makes, value);
+			filterByMake(makes, value);
 		}
 		else if(column.equals("model")){
-			sfilterByModel(makes, value);
+			filterByModel(makes, value);
 		}
 		else if(column.equals("cylinders")){
 			filterByCylinders(makes, value);
@@ -176,7 +176,7 @@ public class Tester {
 		}
 	}
 
-	private static void setToFilter(Set<Makes> makes){
+	private static Set<ModelSettings> setToFilter(Set<Makes> makes){
 		Set<ModelSettings> result = new TreeSet<>((m1, m2)-> m1.getMake().compareToIgnoreCase(m2.getMake()));
 		for(Make m : makes){
 			Set<ModelSettings> cur = m.getModelSettingSet();
@@ -184,7 +184,7 @@ public class Tester {
 				result.add(ms);
 			}
 		}
-
+		return result;
 	}
 
 	private static void filterByMake(Set<Makes> makes, String value){
