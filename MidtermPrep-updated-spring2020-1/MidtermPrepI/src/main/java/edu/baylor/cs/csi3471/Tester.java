@@ -176,6 +176,35 @@ public class Tester {
 	}
 
 	public static void optionFour(Set<Makes> makes){
-		
+		Set<String> makeNames = new TreeSet<>((m1, m2) -> m1.compareToIgnoreCase(m2));
+		Map<String , Map<Integer, Integer>> numModels = new HashMap<>();
+
+		for(Make m : makes){
+			String name = m.getMakeName();
+			makeNames.add(name);
+			numModels.put(name, new HashMap<>());
+			Map<Integer, Integer> modelsByYear = numModels.get(name);
+			Set<ModelSettings> msSet = m.getModelSettingSet();
+			for(ModelSettings ms : msSet){
+				int Year = ms.getYear();
+				if(modelsByYear.containsKey(Year)){
+					int cur = modelsByYear.get(Year);
+					modelsByYear.put(Year, cur + 1);
+				}else{
+					modelsByYear.put(Year, 1);
+				}
+			}
+		}
+
+		System.out.println("Models produced by each make in a given year");
+		System.out.println("============================================");
+
+		for(String name : makeNames){
+			System.out.println(name + "------------- ");
+			Map<Integer, Integer> modelsByYear = numModels.get(name);
+			for(Map.Entry<Integer, Integer> entry : modelsByYear.entrySet()){
+				System.out.println("\t" + entry.getKey() + ": " + entry.getValue() + " models");
+			}
+		}
 	}
 }
