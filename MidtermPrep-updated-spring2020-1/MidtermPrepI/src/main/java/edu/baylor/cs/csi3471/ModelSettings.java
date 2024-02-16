@@ -29,6 +29,7 @@ public class ModelSettings {
 	private String transmission;
 	private String VClass;
 	private int year;
+	private String make;
 
 	public ModelSettings(String[] line) {
 		mpg = new MPG(Integer.parseInt(line[0] == ""? "0" : line[0]), Integer.parseInt(line[5]== ""? "0" : line[5]), Integer.parseInt(line[1]== ""? "0" : line[1]));
@@ -39,8 +40,16 @@ public class ModelSettings {
 		transmission = line[8];
 		VClass = line[9];
 		year = Integer.parseInt(line[10]== ""? "0" : line[10]);
+		make = line[6];
 	}
-	
+
+	public String getMake(){
+		return make;
+	}
+
+	public void setMake(String make){
+		this.make = make;
+	}
 	
 	public MPG getMpg() {
 		return mpg;
