@@ -158,7 +158,7 @@ public class Tester {
 				MPG mpg = ms.getMpg();
 				String vClass = ms.getVClass();
 				if(vClassMPG.containsKey(ms.getVClass())){
-					int comb = vClassMPG.get(vClass + mpg.getComb();
+					int comb = vClassMPG.get(vClass + mpg.getComb());
 					vClassMPG.put(vClass, comb);
 				}else{
 					vClassMPG.put(vClass, mpg.getComb());
